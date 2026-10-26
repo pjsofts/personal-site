@@ -29,4 +29,5 @@ The site is intentionally framework-free so it can be hosted directly on GitHub 
 - `style.css` — visual system and responsive design
 - `script.js` — scroll reveal, year, and small hero interaction
 - `assets/` — supplied photos
+- `assets/projects/` — homepage screenshots of the websites in the portfolio section
 - `resume.pdf` — supplied resume
