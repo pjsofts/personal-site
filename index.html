@@ -3,329 +3,270 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Pouria Jahandideh — I design and build websites and AI products. See the sites I've shipped.">
-  <meta property="og:title" content="Pouria Jahandideh — Websites, Products & AI">
-  <meta property="og:description" content="I design and build websites people remember — and the products behind them.">
-  <meta property="og:image" content="https://pouriajahandideh.com/assets/projects/ted.webp">
+  <title>Pouria Jahandideh — Websites</title>
+  <meta name="description" content="I design and build websites for clubs, shops, clinics and startups. Here are six of them.">
+  <meta name="theme-color" content="#f3f1ec">
+  <meta property="og:title" content="Pouria Jahandideh — Websites">
+  <meta property="og:description" content="I design and build websites for clubs, shops, clinics and startups. Here are six of them.">
+  <meta property="og:image" content="https://pouriajahandideh.com/assets/work/ted-thumb.webp">
   <meta property="og:url" content="https://pouriajahandideh.com/">
-  <title>Pouria Jahandideh — Websites × Products × AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..800;1,400..600&family=Vazirmatn:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-
-  <header class="nav">
-    <a class="brand" href="#top">P / J</a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#websites">Websites</a>
+  <header class="top">
+    <a class="name" href="#">Pouria Jahandideh <span lang="fa" dir="rtl">پوریا جهاندیده</span></a>
+    <nav>
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#life">Life</a>
-      <a href="#contact">Contact</a>
+      <a class="nav-contact" href="#contact">Contact</a>
     </nav>
-    <a class="resume-link" href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">HELLO, I'M POURIA.</p>
-        <h1>I build websites<br><em>people remember.</em></h1>
-        <p class="hero-text">
-          Product-minded engineer who designs and ships <strong>websites, products
-          and AI tools</strong> — from a club's first homepage to a full storefront.
+  <main>
+    <section class="hero" data-bg="#f3f1ec" data-ink="#1a1814" data-accent="#e2552c">
+      <p class="status"><i></i> Taking on new projects</p>
+      <h1>I design and build websites for clubs, shops, clinics and&nbsp;startups.</h1>
+      <div class="hero-foot">
+        <p>
+          Every site on this page was designed and coded by me, from the first sketch
+          to the live domain. My day job is software engineering, ten years of it,
+          so the sites are fast, solid, and ready to grow.
         </p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#websites">See the websites <span>↓</span></a>
-          <a class="text-link" href="mailto:pjsofts@gmail.com">Let's talk ↗</a>
-        </div>
+        <a class="hero-link" href="#work">See six of them <span>↓</span></a>
       </div>
 
-      <div class="hero-visual reveal delay-1">
-        <div class="portrait-frame">
-          <img src="assets/pouria-work.jpg" alt="Pouria working at a desk">
-          <span class="stamp">WEB<br>× AI<br>× CODE</span>
-        </div>
-        <div class="floating-note">
-          <span>Recently shipped</span>
-          <strong>6 live websites,<br>built in Yerevan.</strong>
-        </div>
+      <div class="fan" aria-label="Websites on this page">
+        <a class="fan-card" href="#ted" style="--i:0"><img src="assets/work/ted-thumb.webp" alt="" width="640" height="400"><span>Tehran English Discussion</span></a>
+        <a class="fan-card" href="#run" style="--i:1"><img src="assets/work/run-thumb.webp" alt="" width="640" height="400"><span>Run Baby Run</span></a>
+        <a class="fan-card" href="#ai" style="--i:2"><img src="assets/work/ai-thumb.webp" alt="" width="640" height="400"><span>AI Engineering</span></a>
+        <a class="fan-card" href="#abrisham" style="--i:3"><img src="assets/work/abrisham-thumb.webp" alt="" width="640" height="400"><span>Abrisham Gallery</span></a>
+        <a class="fan-card" href="#biolims" style="--i:4"><img src="assets/work/biolims-thumb.webp" alt="" width="640" height="400"><span>BioLIMS</span></a>
+        <a class="fan-card" href="#clinic" style="--i:5"><img src="assets/work/clinic-thumb.webp" alt="" width="640" height="400"><span>Del Asa Clinic</span></a>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track"><span>Tehran English Discussion</span><i>✳</i><span>Run Baby Run</span><i>✳</i><span>Abrisham Gallery</span><i>✳</i><span>AI Engineering</span><i>✳</i><span>BioLIMS</span><i>✳</i><span>Del Asa Clinic</span><i>✳</i><span>Tehran English Discussion</span><i>✳</i><span>Run Baby Run</span><i>✳</i><span>Abrisham Gallery</span><i>✳</i><span>AI Engineering</span><i>✳</i><span>BioLIMS</span><i>✳</i><span>Del Asa Clinic</span><i>✳</i></div>
+    <div id="work">
+      <section class="project" id="ted" data-bg="#efe3d1" data-ink="#2b1b13" data-accent="#b5432b">
+        <div class="project-text">
+          <p class="meta">Discussion club · Tehran</p>
+          <h2>Tehran English Discussion</h2>
+          <p class="lede">
+            A club that meets every Friday around one long table to share what life has taught them,
+            in English. The site had to feel like that room: warm, a little old-fashioned, and full of people.
+          </p>
+          <ul class="features">
+            <li>Countdown to the next Friday, in both calendars</li>
+            <li>Archive of every session, with member ratings</li>
+            <li>People pages and a Topic Jar</li>
+          </ul>
+          <a class="visit" href="https://tehran-english-discussion.github.io/" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>tehran-english-discussion.github.io</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/ted-desktop.webp" alt="Full homepage of Tehran English Discussion" loading="lazy" width="960" height="2480" style="--dur:22s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/ted-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
+
+      <section class="project" id="run" data-bg="#f6d5e1" data-ink="#141414" data-accent="#141414">
+        <div class="project-text">
+          <p class="meta">Running club · Yerevan</p>
+          <h2>Run Baby Run</h2>
+          <p class="lede">
+            A free running club with three group runs a week: no membership, no pace requirement.
+            So the site is loud, friendly and impossible to misread. The schedule is up front and
+            the WhatsApp button is one tap away.
+          </p>
+          <ul class="features">
+            <li>Weekly schedule and a running diary</li>
+            <li>Photo gallery and upcoming races</li>
+            <li>Members leaderboard</li>
+          </ul>
+          <a class="visit" href="http://runbabyrun.fun/" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>runbabyrun.fun</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/run-desktop.webp" alt="Full homepage of Run Baby Run" loading="lazy" width="960" height="3733" style="--dur:30s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/run-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
+
+      <section class="project" id="ai" data-bg="#1d173a" data-ink="#f4efe4" data-accent="#ecc94b">
+        <div class="project-text">
+          <p class="meta">Course · My own</p>
+          <h2>AI Engineering</h2>
+          <p class="lede">
+            The page for my 12-week mentorship, where engineers build an AI coding agent from scratch.
+            It's written for developers, so it looks like their tools: a terminal in the hero and a
+            curriculum laid out week by week.
+          </p>
+          <ul class="features">
+            <li>Week-by-week curriculum</li>
+            <li>Webinar, blog and jobs pages</li>
+            <li>Python and TypeScript tracks</li>
+          </ul>
+          <a class="visit" href="https://pjsofts.github.io" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>pjsofts.github.io</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/ai-desktop.webp" alt="Full homepage of the AI Engineering course" loading="lazy" width="960" height="3733" style="--dur:30s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/ai-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
+
+      <section class="project" id="abrisham" data-bg="#f6f6f2" data-ink="#111111" data-accent="#2e7d4a">
+        <div class="project-text">
+          <p class="meta">Store · Tehran</p>
+          <h2>Abrisham Gallery</h2>
+          <p class="lede">
+            A design house that sells clothing, home décor, jewelry, bags and perfume, and runs a café.
+            I built a Persian, right-to-left storefront that lets the photography do the talking,
+            with every category one tap away.
+          </p>
+          <ul class="features">
+            <li>Right-to-left Persian storefront</li>
+            <li>Product catalogue and cart</li>
+            <li>Language switch</li>
+          </ul>
+          <a class="visit" href="https://abrishamgallery.com/" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>abrishamgallery.com</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/abrisham-desktop.webp" alt="Full homepage of Abrisham Gallery" loading="lazy" width="960" height="3775" style="--dur:30s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/abrisham-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
+
+      <section class="project" id="biolims" data-bg="#e2eafa" data-ink="#0f1d3a" data-accent="#1d5fe0">
+        <div class="project-text">
+          <p class="meta">Open-source software</p>
+          <h2>BioLIMS</h2>
+          <p class="lede">
+            Free sample management for academic labs that still track freezer boxes in Excel.
+            The page makes the case in one screen, then backs it up with features, a comparison
+            and a live demo.
+          </p>
+          <ul class="features">
+            <li>Product tour and comparison</li>
+            <li>Hosted or self-hosted options</li>
+            <li>Live demo account</li>
+          </ul>
+          <a class="visit" href="https://bioliams.github.io/" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>bioliams.github.io</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/biolims-desktop.webp" alt="Full homepage of BioLIMS" loading="lazy" width="960" height="3733" style="--dur:30s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/biolims-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
+
+      <section class="project" id="clinic" data-bg="#dce9e2" data-ink="#11302a" data-accent="#2f6f5e">
+        <div class="project-text">
+          <p class="meta">Counselling clinic</p>
+          <h2>Del Asa Clinic</h2>
+          <p class="lede">
+            Instead of debating mockups, I built the whole site once and gave it a set of themes.
+            The clinic compared colours, fonts and button styles on the real thing, then picked
+            the one that felt right.
+          </p>
+          <ul class="features">
+            <li>Multiple complete themes</li>
+            <li>Live font and style switcher</li>
+            <li>Right-to-left Persian</li>
+          </ul>
+          <a class="visit" href="https://pjsofts.github.io/clinic/themes.html" target="_blank" rel="noopener">Visit the site <span>↗</span></a>
+        </div>
+        <div class="project-visual">
+          <div class="desktop">
+            <div class="bar"><i></i><i></i><i></i><em>pjsofts.github.io/clinic</em></div>
+            <div class="screen"><img class="scroller" src="assets/work/clinic-desktop.webp" alt="Theme picker page of the Del Asa clinic site" loading="lazy" width="960" height="3733" style="--dur:30s"></div>
+          </div>
+          <div class="phone"><div class="screen"><img class="scroller" src="assets/work/clinic-mobile.webp" alt="" loading="lazy" width="400" height="4308" style="--dur:30s"></div></div>
+        </div>
+      </section>
     </div>
 
-    <section class="statement reveal">
-      <p class="section-kicker">01 / THE SHORT VERSION</p>
-      <h2>I like turning <span>ambiguous ideas</span> into things people can actually use.</h2>
-      <div class="statement-grid">
+    <section class="about" id="about" data-bg="#f3f1ec" data-ink="#1a1814" data-accent="#e2552c">
+      <div class="about-photos">
+        <img class="portrait" src="assets/pouria-utmb.jpg" alt="Pouria smiling in front of a green tiled wall" width="640" height="640" loading="lazy">
+        <figure class="race">
+          <img src="assets/pouria-life.jpg" alt="Pouria at the start line of a UTMB trail race" width="960" height="1280" loading="lazy">
+          <figcaption>Start line, UTMB race</figcaption>
+        </figure>
+      </div>
+      <div class="about-text">
+        <h2>Hi, I'm Pouria.</h2>
         <p>
-          My background sits between engineering and product: I can think through
-          the user problem, make architecture decisions, prototype the idea,
-          and help get it into production.
+          I'm a software engineer from Iran, living in Yerevan, Armenia. I've been building for
+          the web since 2015: online shops, payment systems, dashboards, and lately AI products.
         </p>
         <p>
-          Over 10+ years I've built SaaS platforms, payment systems, enterprise
-          software, large-scale ride-hailing systems, and now generative-AI
-          products.
+          Websites are where all of that meets real people. A running club should feel like a
+          running club. A clinic should feel calm. A shop should get out of the way of its
+          products. I like working out what a place should feel like, then building it properly.
         </p>
+        <p>Away from the keyboard, I run long distances.</p>
       </div>
     </section>
 
-    <section id="websites" class="websites">
-      <div class="websites-head reveal">
+    <section class="how" data-bg="#f3f1ec" data-ink="#1a1814" data-accent="#e2552c">
+      <h2>Working with me</h2>
+      <div class="how-grid">
         <div>
-          <p class="section-kicker">02 / WEBSITES I'VE BUILT</p>
-          <h2>Live on the web,<br><em>built by hand.</em></h2>
+          <h3>You talk to the person building it.</h3>
+          <p>No account managers and no handoffs. You tell me what you need; I design it, build it and put it online.</p>
         </div>
-        <p class="websites-intro">
-          Clubs, shops, clinics, courses and open-source products. Each one designed
-          around the people who use it — and every one of them is live. Click any
-          site to visit it.
-        </p>
+        <div>
+          <h3>Persian or English, left or right.</h3>
+          <p>I build in both languages. Abrisham and Del Asa are right-to-left Persian sites; the others are in English.</p>
+        </div>
+        <div>
+          <h3>Built like software, not a template.</h3>
+          <p>Hand-written code that's quick on phones and yours to keep. Simple sites can be hosted for free.</p>
+        </div>
+        <div>
+          <h3>Room to grow.</h3>
+          <p>Bookings, payments, a members area, an AI assistant: when you need more, that's been my day job for ten years.</p>
+        </div>
       </div>
-      <div class="sites">
-        <a class="site feature reveal" href="https://tehran-english-discussion.github.io/" target="_blank" rel="noopener" style="--tint: #b5432b">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>tehran-english-discussion.github.io</span></div>
-            <div class="browser-shot"><img src="assets/projects/ted.webp" alt="Homepage of Tehran English Discussion" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>01</b> Community · Tehran</p>
-            <h3>Tehran English Discussion <span class="arrow">↗</span></h3>
-            <p class="site-desc">A warm home for a weekly English discussion club — a live “next Friday” countdown, session archive, member profiles and a topic jar.</p>
-            <div class="tags"><span>Community</span><span>Events</span><span>Archive</span></div>
-          </div>
-        </a>
-        <a class="site feature reveal delay-1" href="http://runbabyrun.fun/" target="_blank" rel="noopener" style="--tint: #ec9fbb">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>runbabyrun.fun</span></div>
-            <div class="browser-shot"><img src="assets/projects/run.webp" alt="Homepage of Run Baby Run" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>02</b> Running club · Yerevan</p>
-            <h3>Run Baby Run <span class="arrow">↗</span></h3>
-            <p class="site-desc">A playful identity for a free running club — weekly schedule, run diary, photo gallery, races and a members leaderboard.</p>
-            <div class="tags"><span>Brand</span><span>Community</span><span>Gallery</span></div>
-          </div>
-        </a>
-        <a class="site reveal" href="https://abrishamgallery.com/" target="_blank" rel="noopener" style="--tint: #2f7d4f">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>abrishamgallery.com</span></div>
-            <div class="browser-shot"><img src="assets/projects/abrisham.webp" alt="Homepage of Abrisham Gallery" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>03</b> E-commerce · Tehran</p>
-            <h3>Abrisham Gallery <span class="arrow">↗</span></h3>
-            <p class="site-desc">A Persian-first, right-to-left storefront for a design house — apparel, décor, jewelry, perfume and a café under one roof.</p>
-            <div class="tags"><span>Storefront</span><span>RTL</span><span>Fashion</span></div>
-          </div>
-        </a>
-        <a class="site reveal delay-1" href="https://pjsofts.github.io" target="_blank" rel="noopener" style="--tint: #3a2d8c">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>pjsofts.github.io</span></div>
-            <div class="browser-shot"><img src="assets/projects/ai.webp" alt="Homepage of AI Engineering" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>04</b> Course landing page</p>
-            <h3>AI Engineering <span class="arrow">↗</span></h3>
-            <p class="site-desc">The landing page for my 12-week mentorship where engineers build a Claude Code-style coding agent from scratch.</p>
-            <div class="tags"><span>Landing page</span><span>Education</span><span>AI</span></div>
-          </div>
-        </a>
-        <a class="site reveal" href="https://bioliams.github.io/" target="_blank" rel="noopener" style="--tint: #1d5fe0">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>bioliams.github.io</span></div>
-            <div class="browser-shot"><img src="assets/projects/biolims.webp" alt="Homepage of BioLIMS" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>05</b> Open-source SaaS</p>
-            <h3>BioLIMS <span class="arrow">↗</span></h3>
-            <p class="site-desc">A product site for open-source lab sample management — features, comparison, hosting options and developer docs.</p>
-            <div class="tags"><span>SaaS</span><span>Open source</span><span>Product</span></div>
-          </div>
-        </a>
-        <a class="site reveal delay-1" href="https://pjsofts.github.io/clinic/themes.html" target="_blank" rel="noopener" style="--tint: #2f6f5e">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span>pjsofts.github.io/clinic</span></div>
-            <div class="browser-shot"><img src="assets/projects/clinic.webp" alt="Homepage of Del Asa Clinic" loading="lazy" width="1200" height="750"></div>
-          </div>
-          <div class="site-info">
-            <p class="mono"><b>06</b> Counseling clinic · Theme picker</p>
-            <h3>Del Asa Clinic <span class="arrow">↗</span></h3>
-            <p class="site-desc">A clinic site delivered as a set of themes, so the client could compare palettes, fonts and styles live before choosing one.</p>
-            <div class="tags"><span>Healthcare</span><span>RTL</span><span>Design system</span></div>
-          </div>
-        </a>
-      </div>
-      <div class="websites-cta reveal">
-        <p>Need a website like these?</p>
-        <a class="button button-dark" href="#contact">Start a project <span>→</span></a>
+
+      <div class="before">
+        <h2>Before the websites</h2>
+        <ol class="timeline">
+          <li><span>2025 – now</span><strong>Agentonic</strong><p>AI agents and search over company data. Remote.</p></li>
+          <li><span>2023 – 2025</span><strong>Prima Luxury, Dubai</strong><p>Led a team of ten building an AI-driven CRM, plus marketing sites in Next.js.</p></li>
+          <li><span>2021 – 2023</span><strong>Snapp, Tehran</strong><p>Ride-hailing for 40 million users. Backend services in Go; rebuilt the corporate panel in React.</p></li>
+          <li><span>2019 – 2021</span><strong>ZarinPal, Tehran</strong><p>Team lead on a new payment gateway, from nothing to launch.</p></li>
+          <li><span>2015 – 2019</span><strong>MTN Irancell, Tehran</strong><p>Built the online shop, which became the main sales channel, and a point-of-sale system used in 10,000 stores.</p></li>
+        </ol>
+        <a class="resume" href="resume.pdf" target="_blank" rel="noopener">Full resume (PDF) <span>↗</span></a>
       </div>
     </section>
 
-    <section id="work" class="work">
-      <div class="section-head reveal">
-        <p class="section-kicker">03 / SELECTED WORK</p>
-        <p class="muted">A few chapters from the day job.</p>
-      </div>
-
-      <article class="case reveal">
-        <div class="case-index">01</div>
-        <div class="case-main">
-          <div class="case-title">
-            <p class="mono">JAN 2025 — PRESENT</p>
-            <h3>Generative AI<br>in production.</h3>
-          </div>
-          <p class="case-copy">
-            Building AI features on a real-time platform: agents that take meaningful
-            actions, LLM pipelines, RAG over vector databases, search, recommendations,
-            and memory — with React / Next.js interfaces on top.
-          </p>
-          <div class="tags">
-            <span>LLMs</span><span>AI Agents</span><span>RAG</span><span>Python</span><span>React</span>
-          </div>
-        </div>
-        <div class="case-side">
-          <div class="number">10<span>+</span></div>
-          <p>years building software</p>
-        </div>
-      </article>
-
-      <article class="case case-alt reveal">
-        <div class="case-index">02</div>
-        <div class="case-main">
-          <div class="case-title">
-            <p class="mono">2023 — 2025 · DUBAI</p>
-            <h3>From zero<br>to an AI CRM.</h3>
-          </div>
-          <p class="case-copy">
-            Led the engineering effort behind an AI-driven CRM designed to strengthen
-            client relationships, capture leads, and automate communication. Owned
-            architecture across microservices and led a cross-functional team of 10.
-          </p>
-          <div class="tags">
-            <span>Product</span><span>Golang</span><span>React</span><span>Postgres</span><span>AWS</span>
-          </div>
-        </div>
-        <div class="case-side metric-card">
-          <div class="number">10</div>
-          <p>people across engineering, design & product</p>
-        </div>
-      </article>
-
-      <article class="case reveal">
-        <div class="case-index">03</div>
-        <div class="case-main">
-          <div class="case-title">
-            <p class="mono">2021 — 2023 · SNAPP</p>
-            <h3>Engineering<br>at scale.</h3>
-          </div>
-          <p class="case-copy">
-            Built backend microservices and a corporate panel for a ride-hailing
-            platform serving 40M users and 3M daily rides, with a focus on
-            concurrency, throughput, and production migrations.
-          </p>
-          <div class="tags">
-            <span>Go</span><span>gRPC</span><span>NATS</span><span>React</span><span>Kubernetes</span>
-          </div>
-        </div>
-        <div class="case-side">
-          <div class="number">40M</div>
-          <p>users on the platform</p>
-        </div>
-      </article>
-    </section>
-
-    <section class="capabilities reveal">
-      <div>
-        <p class="section-kicker">04 / WHAT I BRING</p>
-        <h2>Product thinking,<br>technical depth.</h2>
-      </div>
-      <div class="capability-list">
-        <div><span>01</span><strong>Product</strong><p>Discovery, customer collaboration, zero-to-one delivery, turning ideas into useful systems.</p></div>
-        <div><span>02</span><strong>AI</strong><p>LLMs, RAG, agents, vector search, inference pipelines, and AI features that take action.</p></div>
-        <div><span>03</span><strong>Engineering</strong><p>Go, React, TypeScript, Python, distributed systems, APIs, SaaS architecture and cloud infrastructure.</p></div>
-        <div><span>04</span><strong>Leadership</strong><p>Technical leadership, cross-functional collaboration, mentoring, and communicating complex systems clearly.</p></div>
-      </div>
-    </section>
-
-    <section id="about" class="about reveal">
-      <div class="about-image">
-        <img src="assets/pouria-life.jpg" alt="Pouria outdoors">
-      </div>
-      <div class="about-copy">
-        <p class="section-kicker">05 / BEYOND THE SCREEN</p>
-        <h2>I'm interested in the <em>whole</em> thing.</h2>
-        <p>
-          Technology is a big part of my life, but it isn't the whole story.
-          I run long distances, teach, meet people, explore new places, and
-          enjoy building communities around things I care about.
-        </p>
-        <p>
-          I think those experiences make me better at product work: curiosity,
-          consistency, empathy, and the ability to stay with a difficult problem
-          longer than is comfortable.
-        </p>
-        <a class="text-link" href="#life">A little more about that ↓</a>
-      </div>
-    </section>
-
-    <section id="life" class="life">
-      <div class="section-head reveal">
-        <p class="section-kicker">06 / LIFE OUTSIDE WORK</p>
-        <p class="muted">The other tabs that are always open.</p>
-      </div>
-      <div class="life-grid">
-        <figure class="life-card tall reveal">
-          <img src="assets/pouria-utmb.jpg" alt="Pouria at an ultramarathon event">
-          <figcaption><span>RUN</span><strong>Long distances.</strong></figcaption>
-        </figure>
-        <figure class="life-card reveal delay-1">
-          <img src="assets/pouria-life.jpg" alt="Pouria taking a photo">
-          <figcaption><span>EXPLORE</span><strong>New places, new perspectives.</strong></figcaption>
-        </figure>
-        <div class="life-note reveal delay-2">
-          <p class="big-quote">“Make useful things. Keep learning. Stay curious.”</p>
-          <p class="mono">— personal operating system</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="education reveal">
-      <div class="education-head">
-        <p class="section-kicker">07 / A FEW FACTS</p>
-      </div>
-      <div class="facts">
-        <div><strong>10+</strong><span>years in software</span></div>
-        <div><strong>Go + React</strong><span>core engineering stack</span></div>
-        <div><strong>6</strong><span>live websites shipped</span></div>
-        <div><strong>C1</strong><span>professional English</span></div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact reveal">
-      <p class="section-kicker">08 / SAY HELLO</p>
-      <h2>Need a website<br><em>worth visiting?</em></h2>
-      <a class="email" href="mailto:pjsofts@gmail.com">pjsofts@gmail.com <span>↗</span></a>
-      <div class="contact-meta">
-        <span>Yerevan, Armenia</span>
-        <span>Remote / Worldwide</span>
+    <section class="contact" id="contact" data-bg="#1a1814" data-ink="#f3f1ec" data-accent="#ff8a5c">
+      <h2>Have a website in mind?</h2>
+      <p>Tell me what it's for and who it's for. I'll get back to you with questions and ideas.</p>
+      <a class="email" href="mailto:pjsofts@gmail.com">pjsofts@gmail.com</a>
+      <div class="contact-row">
         <a href="tel:+374055481738">+374 055 481 738</a>
+        <span>Yerevan, Armenia · working worldwide</span>
       </div>
+      <footer>© <span id="year">2026</span> Pouria Jahandideh</footer>
     </section>
   </main>
-
-  <footer class="footer">
-    <span>© <span id="year"></span> Pouria Jahandideh</span>
-    <span>Built with HTML / CSS / JS</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
 
   <script src="script.js"></script>
 </body>

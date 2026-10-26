@@ -1,10 +1,8 @@
-# Pouria Jahandideh — Personal Website
+# pouriajahandideh.com
 
-A static personal landing page built with plain HTML, CSS and JavaScript.
+Portfolio of websites I've designed and built. Plain HTML, CSS and JavaScript, hosted on GitHub Pages.
 
 ## Run locally
-
-Open `index.html` directly in a browser, or run:
 
 ```bash
 python3 -m http.server 8000
@@ -12,22 +10,22 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
-## Deploy to GitHub Pages
+## How it works
 
-1. Create a GitHub repository.
-2. Upload everything in this folder to the repository root.
-3. Go to **Settings → Pages**.
-4. Choose **Deploy from a branch**.
-5. Select `main` and `/root`.
-6. Save.
-
-The site is intentionally framework-free so it can be hosted directly on GitHub Pages.
+- Each section in `index.html` carries `data-bg`, `data-ink` and `data-accent`. As a section crosses the middle of the screen, `script.js` switches the page to those colours.
+- Each project shows full-page screenshots in a browser and a phone frame. They scroll while the project is on screen and pause on hover.
 
 ## Files
 
-- `index.html` — page structure/content
-- `style.css` — visual system and responsive design
-- `script.js` — scroll reveal, year, and small hero interaction
-- `assets/` — supplied photos
-- `assets/projects/` — homepage screenshots of the websites in the portfolio section
-- `resume.pdf` — supplied resume
+- `index.html`: all content
+- `style.css`: layout and design
+- `script.js`: colour switching and screenshot playback
+- `assets/work/`: screenshots of each site (`-thumb`, `-desktop`, `-mobile`)
+- `assets/`: photos
+- `resume.pdf`: resume
+
+## Adding a site
+
+1. Take a full-page screenshot at 1440px wide and another at 390px wide.
+2. Save them as WebP in `assets/work/`: 960px wide for desktop, 400px wide for mobile, and a 640×400 crop of the top for the thumbnail.
+3. Copy a `<section class="project">` block in `index.html`, change its text and colours, and add a card to the `.fan` in the hero.
