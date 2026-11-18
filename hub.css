@@ -70,3 +70,11 @@
 @media (max-width: 560px) {
   .doors { grid-template-columns: 1fr; }
 }
+
+/* testimonials */
+.testimonials { padding: 96px 6vw; }
+.testimonials h2 { margin: 0 0 32px; }
+.testimonials .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 28px; }
+.testimonials figure { margin: 0; padding: 28px; border: 1px solid currentColor; border-radius: 16px; border-color: rgba(26,24,20,.15); }
+.testimonials blockquote { margin: 0 0 16px; font-size: 1.15rem; line-height: 1.5; }
+.testimonials figcaption { font-size: .95rem; opacity: .75; }

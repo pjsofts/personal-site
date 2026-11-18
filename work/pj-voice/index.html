@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PJ Voice case study: an AI phone agent that books appointments safely · Pouria Jahandideh</title>
+  <meta name="description" content="How I designed PJ Voice, an open source AI phone agent: correctness enforced on the server, hidden IDs, stage graphs, fallbacks that never drop a call, and evals that test whole conversations.">
+  <link rel="canonical" href="https://pouriajahandideh.com/work/pj-voice/">
+  <meta property="og:title" content="PJ Voice case study · Pouria Jahandideh">
+  <meta property="og:image" content="https://pouriajahandideh.com/assets/work/pjvoice-thumb.webp">
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0b14; --ink:#ecebf5; --muted:#a9a8bd; --accent:#ff8a5b; --line:#25253a; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.6 "Schibsted Grotesk", system-ui, sans-serif; }
+    a { color:var(--accent); }
+    header, main, footer { max-width:820px; margin:0 auto; padding:0 24px; }
+    header { padding-top:28px; display:flex; justify-content:space-between; gap:16px; font-size:16px; }
+    header a { color:var(--ink); text-decoration:none; }
+    h1 { font-size:clamp(34px,6vw,56px); line-height:1.05; margin:56px 0 12px; letter-spacing:-0.02em; }
+    .meta { color:var(--accent); font-size:14px; letter-spacing:.08em; text-transform:uppercase; margin:48px 0 0; }
+    .lede { font-size:21px; color:var(--muted); margin:0 0 28px; }
+    h2 { font-size:26px; margin:56px 0 12px; }
+    h3 { font-size:19px; margin:28px 0 6px; }
+    .shot { width:100%; height:auto; border-radius:12px; border:1px solid var(--line); margin:8px 0 0; }
+    .facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:28px 0; padding:0; list-style:none; }
+    .facts li { border:1px solid var(--line); border-radius:12px; padding:16px; }
+    .facts strong { display:block; font-size:30px; color:var(--accent); line-height:1.1; }
+    .facts span { color:var(--muted); font-size:15px; }
+    pre { background:#14141f; border:1px solid var(--line); border-radius:10px; padding:16px; overflow-x:auto; font-size:14px; line-height:1.5; }
+    table { width:100%; border-collapse:collapse; font-size:16px; }
+    td, th { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-weight:500; }
+    .links { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+    .links a { border:1px solid var(--accent); border-radius:999px; padding:8px 18px; text-decoration:none; }
+    footer { color:var(--muted); font-size:15px; padding:64px 24px 48px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../../">← Pouria Jahandideh</a>
+    <a href="https://github.com/pjsofts/pj-voice" target="_blank" rel="noopener">GitHub ↗</a>
+  </header>
+
+  <main>
+    <p class="meta">Case study · Open source · Python · LiveKit · MIT</p>
+    <h1>PJ Voice: an AI phone agent that books appointments without booking the wrong customer</h1>
+    <p class="lede">Callers phone a number and talk to an agent that looks up their account, checks availability, and books, moves or cancels appointments. I designed it so that the mistakes that cost a business money are blocked in code, not left to the prompt.</p>
+
+    <img class="shot" src="../../assets/work/pjvoice-thumb.webp" alt="PJ Voice project site" width="640" height="400">
+
+    <div class="links">
+      <a href="https://pjsofts.github.io/pj-voice/" target="_blank" rel="noopener">Live project site ↗</a>
+      <a href="https://github.com/pjsofts/pj-voice" target="_blank" rel="noopener">Source code ↗</a>
+      <a href="https://github.com/pjsofts/pj-voice/blob/main/docs/learn/tutorial-restaurant.md" target="_blank" rel="noopener">Tutorial ↗</a>
+    </div>
+
+    <h2>The problem</h2>
+    <p>Voice agents are easy to demo and hard to trust. A model that sounds right can still attach a booking to the wrong account, offer a slot that isn't free, or go silent when a dependency fails, and the caller hangs up. On the phone there's no screen to catch the mistake, and callers start hanging up after about a second of silence.</p>
+
+    <h2>Key decisions and trade-offs</h2>
+
+    <h3>1. Correctness lives in the tool server, not the prompt</h3>
+    <p>Prompts drift and models change. Anything that would cost the business money (a double booking, a wrong price, a booking on the wrong account) is enforced in code the model can't skip: offered-slot guards, ownership checks and idempotent writes. The prompt explains the rules; the server enforces them.</p>
+
+    <h3>2. Hide IDs from the model</h3>
+    <p>The worst tool error isn't an invalid argument, because validation catches those. It's a <em>valid</em> ID for the wrong customer. So a parameter marked as injected is removed from the schema the model sees and filled in by the server. If the model can't see the field, it can't fill it wrongly.</p>
+<pre>parameters:
+  caller_phone: {type: string, x-injected: caller_phone}   # filled by the server, never by the model</pre>
+    <p><strong>Trade-off:</strong> when an injected value is missing, the call still goes out and the server answers with an actionable error ("no customer identified yet, call find_customer first"). Blocking the call would end the conversation; this lets the agent recover in the same turn.</p>
+
+    <h3>3. Stage graphs instead of one giant prompt</h3>
+    <p>A single prompt with every tool makes wrong tool choices more likely and every turn slower. The call is split into stages (triage → booking → manage), each with its own instructions and a small tool set. Handoffs are silent tool calls, and hop caps stop two stages bouncing the caller back and forth.</p>
+
+    <h3>4. Never drop a call because a dependency failed</h3>
+    <table>
+      <tr><th>If this fails</th><th>The agent does this</th></tr>
+      <tr><td>Tenant config webhook</td><td>Uses the last known good config</td></tr>
+      <tr><td>Primary LLM</td><td>Switches to a fallback model</td></tr>
+      <tr><td>A tool times out</td><td>Apologises, offers a callback, and the call continues</td></tr>
+    </table>
+
+    <h3>5. Built for a one-second latency budget</h3>
+    <p>Streaming speech-to-text, LLM and text-to-speech end to end, one HTTP hop per tool, short per-tool timeouts, a prewarmed voice-activity detector per worker, and no extra LLM calls in the turn path.</p>
+
+    <h3>6. One engine for phone, text and tests</h3>
+    <p>The voice worker and the text runner share the same config, stages, tools and guards. So the real logic runs in unit tests and evals without any audio, and SMS or chat come almost for free.</p>
+
+    <h2>How I know it works</h2>
+    <p>Unit tests can't catch a prompt change that makes the agent rude or forgetful, so PJ Voice tests whole conversations. An LLM plays the caller, the agent handles the call through the text runner, and weighted validators score the outcome: was the right tool called, did the backend end with the right number of appointments, did the agent say something it shouldn't.</p>
+<pre>pjvoice eval examples/demo-salon.yaml evals/scenarios --repeat 3 -v</pre>
+    <ul class="facts">
+      <li><strong>25</strong><span>automated tests, run in CI on every push</span></li>
+      <li><strong>3</strong><span>simulated-caller scenarios: new customer books, returning customer cancels, price question</span></li>
+      <li><strong>7</strong><span>course chapters, each mapped to working code</span></li>
+      <li><strong>~45 min</strong><span>to build a restaurant-reservations agent with the tutorial</span></li>
+    </ul>
+
+    <h2>What I'd do next</h2>
+    <p>More eval scenarios for hard calls (interruptions, unclear dates, callers who change their mind twice), latency numbers per stage published alongside the evals, and a hosted demo number people can call.</p>
+
+    <h2>Stack</h2>
+    <p>Python 3.11+, LiveKit Agents, Pydantic, FastAPI, SQLite, plain HTTP tools, YAML configs, any OpenAI-compatible LLM. SIP or browser calls.</p>
+  </main>
+
+  <footer>
+    Built by Pouria Jahandideh · <a href="../../">pouriajahandideh.com</a> · <a href="mailto:pjsofts@gmail.com">pjsofts@gmail.com</a>
+  </footer>
+</body>
+</html>
