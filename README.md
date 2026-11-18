@@ -1,6 +1,9 @@
 # pouriajahandideh.com
 
-Portfolio of websites I've designed and built. Plain HTML, CSS and JavaScript, hosted on GitHub Pages.
+My home on the web: one page that links to everything I do. Plain HTML, CSS and JavaScript, hosted on GitHub Pages.
+
+- `/`: the hub. Open source (PJ Voice, BioLIMS, AI Agent Workflows…), the AI Engineering course, websites, résumé.
+- `/websites/`: portfolio of websites I've designed and built.
 
 ## Run locally
 
@@ -17,7 +20,9 @@ Then visit `http://localhost:8000`.
 
 ## Files
 
-- `index.html`: all content
+- `index.html`: the hub
+- `hub.css`: hub-only styles (on top of `style.css`)
+- `websites/index.html`: the websites portfolio
 - `style.css`: layout and design
 - `script.js`: colour switching and screenshot playback
 - `assets/work/`: screenshots of each site (`-thumb`, `-desktop`, `-mobile`)
@@ -28,4 +33,4 @@ Then visit `http://localhost:8000`.
 
 1. Take a full-page screenshot at 1440px wide and another at 390px wide.
 2. Save them as WebP in `assets/work/`: 960px wide for desktop, 400px wide for mobile, and a 640×400 crop of the top for the thumbnail.
-3. Copy a `<section class="project">` block in `index.html`, change its text and colours, and add a card to the `.fan` in the hero.
+3. Copy a `<section class="project">` block in `websites/index.html`, change its text and colours, and add a card to the `.fan` in the hero.
